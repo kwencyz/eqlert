@@ -18,25 +18,15 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  final _nameController = TextEditingController();
-  final _phoneController = TextEditingController();
-  final _icController = TextEditingController();
-  final _etnikController = TextEditingController();
-  final _nationalController = TextEditingController();
-  final _nameHusbandController = TextEditingController();
-  final _icHusbandController = TextEditingController();
+  final _fnameController = TextEditingController();
+  final _lnameController = TextEditingController();
 
   @override
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
-    _nameController.dispose();
-    _phoneController.dispose();
-    _icController.dispose();
-    _etnikController.dispose();
-    _nationalController.dispose();
-    _nameHusbandController.dispose();
-    _icHusbandController.dispose();
+    _fnameController.dispose();
+    _lnameController.dispose();
     super.dispose();
   }
 
@@ -63,15 +53,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Future<void> signUp() async {
     try {
       // Validate text fields
-      if (_nameController.text.trim().isEmpty ||
-          _phoneController.text.trim().isEmpty ||
-          _icController.text.trim().isEmpty ||
+      if (_fnameController.text.trim().isEmpty ||
+          _lnameController.text.trim().isEmpty ||
           _emailController.text.trim().isEmpty ||
-          _passwordController.text.trim().isEmpty ||
-          _etnikController.text.trim().isEmpty ||
-          _nationalController.text.trim().isEmpty ||
-          _nameHusbandController.text.trim().isEmpty ||
-          _icHusbandController.text.trim().isEmpty) {
+          _passwordController.text.trim().isEmpty) {
         _showErrorDialog('Sila isikan semua ruangan');
         return;
       }
@@ -90,23 +75,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
       FirebaseFirestore firestore = FirebaseFirestore.instance;
 
       // Create a new user document
-      final patient = <String, dynamic>{
+      final user = <String, dynamic>{
         "uid": uid,
-        "name": _nameController.text.trim(),
-        "phone": _phoneController.text.trim(),
-        "ic": _icController.text.trim(),
+        "first name": _fnameController.text.trim(),
+        "last name": _lnameController.text.trim(),
         "email": _emailController.text.trim(),
-        "etnik": _etnikController.text.trim(),
-        "national": _nationalController.text.trim(),
-        "nameHusband": _nameHusbandController.text.trim(),
-        "icHusband": _icHusbandController.text.trim(),
       };
 
       // Add the user document to Firestore
       await firestore
-          .collection("patient")
+          .collection("user")
           .doc(uid)
-          .set(patient)
+          .set(user)
           .then(() {
             print('DocumentSnapshot added with ID: $uid');
           } as FutureOr Function(void value))
@@ -164,7 +144,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: TextField(
-                  controller: _nameController,
+                  controller: _fnameController,
                   decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'First Name',
@@ -185,7 +165,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: TextField(
-                  controller: _nameController,
+                  controller: _lnameController,
                   decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Last Name',

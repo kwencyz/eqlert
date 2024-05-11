@@ -53,27 +53,23 @@ class _NavigationScreenState extends State<NavigationScreen> {
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: ColorFiltered(
-              colorFilter: ColorFilter.mode(
-                _selectedIndex == 0
-                    ? const Color.fromRGBO(255, 53, 139, 1)
-                    : Colors.black,
-                BlendMode.srcIn,
+              icon: ColorFiltered(
+                colorFilter: ColorFilter.mode(
+                  _selectedIndex == 0 ? Colors.white : Colors.black,
+                  BlendMode.srcIn,
+                ),
+                child: SvgPicture.asset(
+                  'assets/icons/home.svg',
+                  width: 24, // Set the width of the SVG icon
+                  height: 24, // Set the height of the SVG icon
+                ),
               ),
-              child: SvgPicture.asset(
-                'assets/icons/home.svg',
-                width: 24, // Set the width of the SVG icon
-                height: 24, // Set the height of the SVG icon
-              ),
-            ),
-            label: 'Menu Utama',
-          ),
+              label: 'Home',
+              backgroundColor: Color.fromRGBO(214, 148, 20, 1)),
           BottomNavigationBarItem(
             icon: ColorFiltered(
               colorFilter: ColorFilter.mode(
-                _selectedIndex == 1
-                    ? const Color.fromRGBO(255, 53, 139, 1)
-                    : Colors.black,
+                _selectedIndex == 1 ? Colors.white : Colors.black,
                 BlendMode.srcIn,
               ),
               child: SvgPicture.asset(
@@ -87,9 +83,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
           BottomNavigationBarItem(
             icon: ColorFiltered(
               colorFilter: ColorFilter.mode(
-                _selectedIndex == 2
-                    ? const Color.fromRGBO(255, 53, 139, 1)
-                    : Colors.black,
+                _selectedIndex == 2 ? Colors.white : Colors.black,
                 BlendMode.srcIn,
               ),
               child: SvgPicture.asset(
@@ -103,9 +97,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
           BottomNavigationBarItem(
             icon: ColorFiltered(
               colorFilter: ColorFilter.mode(
-                _selectedIndex == 3
-                    ? const Color.fromRGBO(255, 53, 139, 1)
-                    : Colors.black,
+                _selectedIndex == 3 ? Colors.white : Colors.black,
                 BlendMode.srcIn,
               ),
               child: SvgPicture.asset(
@@ -126,7 +118,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
           );
         },
         unselectedItemColor: Colors.black,
-        selectedItemColor: const Color.fromRGBO(255, 53, 139, 1),
+        selectedItemColor: Colors.white,
       ),
     );
   }
