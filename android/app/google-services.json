@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "391352734113",
+    "project_id": "eqlert-11976",
+    "storage_bucket": "eqlert-11976.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:391352734113:android:449bf5326776696b257be0",
+        "android_client_info": {
+          "package_name": "com.example.eqlert"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLLUrX_6cNTf4zwz-Dtd-6ydzpPlomaiI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
